@@ -133,7 +133,7 @@ const handleSelectStore = (store) => {
 
   // 送出訂單 
   const onSubmit = async (data) => {
-    console.log(data)
+    //console.log(data)
     if (cart.carts.length === 0) {
       //alert("購物車是空的喔！");
       dispatch(pushMessage({ text:"購物車是空的喔!", type: "warning" }));

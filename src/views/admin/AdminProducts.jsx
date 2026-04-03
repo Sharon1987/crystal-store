@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import * as bootstrap from 'bootstrap';
 import { useNavigate } from 'react-router-dom';
-
+import { useDispatch } from "react-redux";
+import { pushMessage } from "../../store/messageSlice"; // 匯入訊息 Action
 import ProductModal from "../../components/ProductModal";
 import DeleteProductModal from "../../components/DeleteProductModal";
 import Pagination from "../../components/Pagination";
@@ -25,6 +26,7 @@ function AdminProducts() {
 
   const productModalRef = useRef(null);
   const delProductModalRef = useRef(null);
+  const dispatch = useDispatch();
 
   // 1. 初始化 Modal
   useEffect(() => {
@@ -40,7 +42,8 @@ function AdminProducts() {
       ?.split("=")[1];
 
     if (!token) {
-      alert("請先登入管理員帳號");
+      //alert("請先登入管理員帳號");
+      dispatch(pushMessage({ text: "請先登入管理員帳號", type: "danger" }));  
       navigate("/");
       return;
     }
@@ -54,7 +57,8 @@ function AdminProducts() {
       await axios.post(`${API_BASE}api/user/check`);
       getProducts();
     } catch (error) {
-      alert("驗證過期，請重新登入");
+      //alert("驗證過期，請重新登入");
+      dispatch(pushMessage({ text: "驗證過期，請重新登入", type: "danger" }));  
       navigate("/");
     }
   };
@@ -67,7 +71,8 @@ function AdminProducts() {
       setProducts(Object.values(response.data.products));
       setPagination(response.data.pagination);
     } catch (error) {
-      console.error('取得產品清單失敗', error);
+      //  console.error('取得產品清單失敗', error);
+      dispatch(pushMessage({ text: "取得產品清單失敗", type: "danger" }));
     }
   };
 
@@ -104,22 +109,26 @@ function AdminProducts() {
   const addProduct = async () => {
     try {
       await axios.post(`${API_BASE}/api/${API_PATH}/admin/product`, { data: tempProduct });
-      alert('新增商品成功');
+      //alert('新增商品成功');
+      dispatch(pushMessage({ text: "新增商品成功", type: "success" }));
       getProducts();
       closeModal();
     } catch (error) {
-      alert('新增商品失敗');
+      //alert('新增商品失敗');
+      dispatch(pushMessage({ text: "新增商品失敗", type: "danger" }));  
     }
   };
 
   const editProduct = async (id) => {
     try {
       await axios.put(`${API_BASE}/api/${API_PATH}/admin/product/${id}`, { data: tempProduct });
-      alert('編輯商品成功');
+      //alert('編輯商品成功');
+      dispatch(pushMessage({ text: "編輯商品成功", type: "success" })); 
       getProducts();
       closeModal();
     } catch (error) {
-      alert(`編輯失敗：${error.response?.data?.message.join(', ')}`);
+      //alert(`編輯失敗：${error.response?.data?.message.join(', ')}`);
+      dispatch(pushMessage({ text: `編輯失敗：${error.response?.data?.message.join(', ')}`, type: "danger" })); 
     }
   };
 
@@ -149,7 +158,8 @@ function AdminProducts() {
       getProducts();
       delProductModalRef.current.hide();
     } catch (error) {
-      alert("刪除失敗");
+      //  alert("刪除失敗");
+      dispatch(pushMessage({ text: "刪除失敗", type: "danger" }));
     }
   };
 

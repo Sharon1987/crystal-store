@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import * as bootstrap from 'bootstrap';
-
+import { useDispatch } from "react-redux";
+import { pushMessage } from "../../store/messageSlice"; // 匯入訊息 Action
 const API_BASE = import.meta.env.VITE_API_BASE;
 const API_PATH = import.meta.env.VITE_API_PATH;
 
@@ -21,7 +22,7 @@ function AdminCoupon() {
 
   const couponModalRef = useRef(null);
   const delCouponModalRef = useRef(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     couponModalRef.current = new bootstrap.Modal("#couponModal");
     delCouponModalRef.current = new bootstrap.Modal("#delCouponModal");
@@ -34,7 +35,8 @@ function AdminCoupon() {
       setCoupons(res.data.coupons);
       setPagination(res.data.pagination);
     } catch (error) {
-      alert("取得優惠券失敗");
+      //alert("取得優惠券失敗");
+      dispatch(pushMessage({ text:"取得優惠券失敗", type: "danger" }));
     }
   };
 
@@ -64,22 +66,26 @@ function AdminCoupon() {
 
     try {
       await axios[method](url, { data: tempCoupon });
-      alert(isNew ? "新增成功" : "更新成功");
+      //alert(isNew ? "新增成功" : "更新成功");
+      dispatch(pushMessage({ text: isNew ? "新增成功" : "更新成功", type: "success" }));
       couponModalRef.current.hide();
       getCoupons();
     } catch (error) {
-      alert("操作失敗");
+      //alert("操作失敗");
+      dispatch(pushMessage({ text:"操作失敗", type: "danger" })); 
     }
   };
 
   const deleteCoupon = async () => {
     try {
       await axios.delete(`${API_BASE}api/${API_PATH}/admin/coupon/${tempCoupon.id}`);
-      alert("刪除成功");
+      //alert("刪除成功");
+      dispatch(pushMessage({ text:"刪除成功", type: "success" }));
       delCouponModalRef.current.hide();
       getCoupons();
     } catch (error) {
-      alert("刪除失敗");
+      //alert("刪除失敗");
+      dispatch(pushMessage({ text:"刪除失敗", type: "danger" })); 
     }
   };
 

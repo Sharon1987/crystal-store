@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import * as bootstrap from 'bootstrap';
 import Pagination from "../../components/Pagination";
-
+import { useDispatch } from "react-redux";
+import { pushMessage } from "../../store/messageSlice"; // 匯入訊息 Action
 const API_BASE = import.meta.env.VITE_API_BASE;
 const API_PATH = import.meta.env.VITE_API_PATH;
 
@@ -12,7 +13,7 @@ function AdminOrders() {
   const [tempOrder, setTempOrder] = useState({});
   const orderModalRef = useRef(null);
   const delOrderModalRef = useRef(null);
-
+  const dispatch = useDispatch();
   useEffect(() => {
     orderModalRef.current = new bootstrap.Modal("#orderModal");
     delOrderModalRef.current = new bootstrap.Modal("#delOrderModal");
@@ -26,7 +27,8 @@ function AdminOrders() {
       setOrders(res.data.orders);
       setPagination(res.data.pagination);
     } catch (error) {
-      alert("取得訂單失敗");
+      //alert("取得訂單失敗");
+      dispatch(pushMessage({ text:"取得訂單失敗", type: "danger" }));
     }
   };
 
@@ -36,11 +38,13 @@ function AdminOrders() {
       await axios.put(`${API_BASE}api/${API_PATH}/admin/order/${order.id}`, {
         data: order
       });
-      alert("更新訂單成功");
+      //alert("更新訂單成功");
+      dispatch(pushMessage({ text:"更新訂單成功", type: "success" }));
       orderModalRef.current.hide();
       getOrders();
     } catch (error) {
-      alert("更新失敗");
+      //alert("更新失敗");
+      dispatch(pushMessage({ text:"更新失敗", type: "danger" }));
     }
   };
 
@@ -48,11 +52,13 @@ function AdminOrders() {
   const deleteOrder = async () => {
     try {
       await axios.delete(`${API_BASE}api/${API_PATH}/admin/order/${tempOrder.id}`);
-      alert("刪除成功");
+      //alert("刪除成功");
+      dispatch(pushMessage({ text:"刪除成功", type: "success" }));
       delOrderModalRef.current.hide();
       getOrders();
     } catch (error) {
-      alert("刪除失敗");
+      //alert("刪除失敗");
+      dispatch(pushMessage({ text:"刪除失敗", type: "danger" })); 
     }
   };
 
@@ -114,7 +120,6 @@ function AdminOrders() {
           ))}
         </tbody>
           </table>
-           {/* 這裡可以加上你的 Pagination 元件 */}
       <div className="d-flex justify-content-center mt-5">
         <Pagination 
           pagination={pagination} 

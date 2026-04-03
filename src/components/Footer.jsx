@@ -63,7 +63,7 @@ export default function Footer() {
               }} style={{
                 cursor: "default" }}>
                   <img
-                    src="/logo.png"
+                    src={`${import.meta.env.BASE_URL.replace(/\/$/, "")}/logo.png`}
                     alt="Logo"
                     width="80"
                     height="80"
