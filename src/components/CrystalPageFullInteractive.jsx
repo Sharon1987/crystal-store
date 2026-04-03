@@ -141,7 +141,7 @@ useEffect(() => {
            <ProductCard
            product={product}
            onRequireLogin={() => setShowLogin(true)}
-           addToCart={addToCart} // 👈 記得傳入這個 function
+           addToCart={addToCart} 
            />
            </SwiperSlide>
         ))}
