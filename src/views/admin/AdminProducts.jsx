@@ -156,6 +156,8 @@ function AdminProducts() {
     try {
       await axios.delete(`${API_BASE}/api/${API_PATH}/admin/product/${tempProduct.id}`);
       getProducts();
+      //alert("刪除成功");
+      dispatch(pushMessage({ text: "刪除成功", type: "success" }));
       delProductModalRef.current.hide();
     } catch (error) {
       //  alert("刪除失敗");
