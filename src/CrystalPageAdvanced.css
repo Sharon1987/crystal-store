@@ -1,0 +1,260 @@
+/* 全域互動光暈 */
+.interactive-card {
+  --mouse-x: 0px;
+  --mouse-y: 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+.interactive-card::before {
+  content: '';
+  position: absolute;
+  top: var(--mouse-y);
+  left: var(--mouse-x);
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(255,255,255,0.25) 0%, transparent 60%);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  border-radius: 50%;
+  /*transition: all 0.1s ease;*/
+}
+
+/* 光線閃動 */
+.light-trail {
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+  transform: rotate(25deg);
+  pointer-events: none;
+  /*animation: shineMove 2s linear infinite;*/
+}
+/*.shiny-card:hover .light-trail {
+  animation-duration: 1.2s;
+}*/
+
+@keyframes shineMove {
+  0% { left: -150%; }
+  50% { left: 100%; }
+  100% { left: -150%; }
+}
+
+/* Banner */
+.banner-section {
+  height: 450px;
+  background-image: url('/banner.jpg');
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banner-text {
+  background: rgba(255,243,224,0.7);
+  padding: 40px;
+  border-radius: 15px;
+  animation: fadeInText 2s ease-in-out;
+}
+
+/* 商品卡片 */
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.product-card:hover { transform: translateY(-8px); box-shadow: 0 12px 25px rgba(0,0,0,0.2); }
+.product-img-container { position: relative; }
+
+/* 關於我們動畫 */
+.animate-slideLeft { animation: slideLeft 1s ease forwards; }
+.animate-slideRight { animation: slideRight 1s ease forwards; }
+
+/* 社群輪播 */
+.carousel-card {
+  height: 200px;
+  background-color: #fff3e0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Animations */
+@keyframes fadeIn { from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);} }
+@keyframes fadeInText { 0%{opacity:0; transform:translateY(20px);} 100%{opacity:1; transform:translateY(0);} }
+@keyframes slideLeft { from{opacity:0; transform:translateX(-50px);} to{opacity:1; transform:translateX(0);} }
+@keyframes slideRight { from{opacity:0; transform:translateX(50px);} to{opacity:1; transform:translateX(0);} }
+
+.care-guide {
+  max-width: 800px;
+  margin: 10px auto;
+  line-height: 1.8;
+  color: #444;
+  text-align: left;
+}
+
+.care-title {
+  font-size: 28px;
+  margin-bottom: 10px;
+  text-align: left;
+}
+
+.care-subtitle {
+  color: #888;
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.care-item {
+  margin-bottom: 28px;
+  text-align: left;
+}
+
+.care-item h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+  text-align: left;
+}
+
+.care-item p {
+  font-size: 16px;
+  color: #555;
+  text-align: left;
+}
+
+
+.care-container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.care-title {
+  font-size: 30px;
+  margin-bottom: 10px;
+}
+
+.care-subtitle {
+  color: #888;
+  margin-bottom: 30px;
+}
+
+/* Grid 排版 */
+.care-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 20px;
+}
+
+/* 卡片 */
+.care-card {
+  background: #fff;
+  padding: 18px;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  transition: all 0.25s ease;
+  cursor: default;
+  text-align: left;
+}
+
+/* Hover 效果（精品感關鍵） */
+.care-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+}
+
+/* 標題 */
+.care-card h3 {
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+/* 內文 */
+.care-card p {
+  font-size: 16px;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* 金屬特殊樣式 */
+.care-card.metal {
+  background: #fafafa;
+}
+
+
+
+/* 卡片整體 */
+.product-card {
+  transition: all 0.3s ease;
+  border-radius: 12px;
+}
+
+/* hover 效果 */
+.product-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+/* 圖片 */
+.product-img {
+  height: 280px;
+  width: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  
+}
+
+/* 圖片放大 */
+.product-card:hover .product-img {
+  transform: scale(1.05);
+}
+
+/* 按鈕 */
+.add-cart-btn {
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+/* 按鈕 hover */
+.add-cart-btn:hover {
+  background-color: #000;
+  opacity: 0.85;
+}
+
+
+
+
+/* 首頁輪播圖片*/
+/* 1. 文字容器毛玻璃質感 */
+.carousel-text-box {
+  background-color: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 2. 文案樣式 */
+.moment-text {
+  font-weight: 300; /* 字體更細，更有氣質 */
+  letter-spacing: 1.5px;
+  line-height: 1.6;
+  text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+/* 3. 進場動畫 (呼吸感位移) */
+@keyframes fadeInCustom {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fadeIn {
+  animation: fadeInCustom 1.2s ease-out;
+}
