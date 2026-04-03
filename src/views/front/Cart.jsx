@@ -133,14 +133,13 @@ const handleSelectStore = (store) => {
 
   // 送出訂單 
   const onSubmit = async (data) => {
-    
+    console.log(data)
     if (cart.carts.length === 0) {
       //alert("購物車是空的喔！");
       dispatch(pushMessage({ text:"購物車是空的喔!", type: "warning" }));
       return;
     }
-    // 整理送出的地址內容
-    let finalAddress = data.address;
+  
     if (data.shippingMethod === "超商取貨") {
     watchCvsBrand && (
   <div className="mt-3">
@@ -152,7 +151,7 @@ const handleSelectStore = (store) => {
       🔍 搜尋 {watchCvsBrand} 門市
     </button>
 
-    {/* 顯示已選擇的門市資訊 (唯讀) */}
+    {/* 顯示已選擇的門市資訊  */}
     {watch("storeName") && (
       <div className="alert alert-secondary p-2 small">
         <strong>已選門市：</strong> {watch("storeName")} ({watch("storeId")})<br/>
@@ -161,10 +160,25 @@ const handleSelectStore = (store) => {
     )}
     
     {/* 隱藏欄位用於表單驗證 */}
-    <input type="hidden" {...register("storeName", { required: "請選擇門市" })} />
-    {errors.storeName && <div className="text-danger small">{errors.storeName.message}</div>}
+        <input type="hidden" {...register("storeName", { required: "請選擇門市" })} />
+        <input type="hidden" {...register("storeName", { required: watchShippingMethod === "超商取貨" })} />
+        <input type="hidden" {...register("storeId")} />
+        <input type="hidden" {...register("storeAddress")} />
+        {errors.storeName && <div className="text-danger small">{errors.storeName.message}</div>}
   </div>
-)}
+      )
+    }
+      // 整理送出的地址內容
+  let finalAddress = "";
+  
+  if (data.shippingMethod === "超商取貨") {
+    // 如果是超商，把門市名稱、店號、地址組合成一個字串
+    finalAddress = `【${data.cvsBrand} ${data.storeName}】(店號：${data.storeId}) 門市地址：${data.storeAddress}`;
+    console.log("組合後的地址：", finalAddress);
+  } else {
+    // 如果是宅配，就直接用原本的地址欄位
+    finalAddress = data.address;
+  }
     const orderData = {
     user: {
       name: data.name,
