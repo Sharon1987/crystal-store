@@ -12,7 +12,6 @@ import { AuthProvider, useAuth } from './context/AuthContext';
 import Header from './components/Header';
 import Footer from './components/Footer'; 
 import CrystalPageFullInteractive from './components/CrystalPageFullInteractive';
-import MessageToast from './components/MessageToast';
 import OrderSuccess from './views/front/OrderSuccess';
 import CouponModal from "./components/CouponModal";
 import { pushMessage } from './store/messageSlice'; // 匯入訊息 Action
