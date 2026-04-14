@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import * as bootstrap from 'bootstrap';
 import { useDispatch } from "react-redux";
@@ -16,7 +16,6 @@ const INITIAL_COUPON = {
 
 function AdminCoupon() {
   const [coupons, setCoupons] = useState([]);
-  const [pagination, setPagination] = useState({});
   const [tempCoupon, setTempCoupon] = useState(INITIAL_COUPON);
   const [isNew, setIsNew] = useState(false); // 判斷是新增還是編輯
 
@@ -33,9 +32,9 @@ function AdminCoupon() {
     try {
       const res = await axios.get(`${API_BASE}api/${API_PATH}/admin/coupons?page=${page}`);
       setCoupons(res.data.coupons);
-      setPagination(res.data.pagination);
     } catch (error) {
       //alert("取得優惠券失敗");
+      console.log(error.response);
       dispatch(pushMessage({ text:"取得優惠券失敗", type: "danger" }));
     }
   };
@@ -72,6 +71,7 @@ function AdminCoupon() {
       getCoupons();
     } catch (error) {
       //alert("操作失敗");
+      console.log(error.response);
       dispatch(pushMessage({ text:"操作失敗", type: "danger" })); 
     }
   };
@@ -85,6 +85,7 @@ function AdminCoupon() {
       getCoupons();
     } catch (error) {
       //alert("刪除失敗");
+      console.log(error.response);
       dispatch(pushMessage({ text:"刪除失敗", type: "danger" })); 
     }
   };

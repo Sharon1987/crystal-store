@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import { useAuth } from "../context/AuthContext";
+import PropTypes from "prop-types";
+//import { useAuth } from "../context/AuthContext";
 import { useDispatch } from "react-redux";
 import { pushMessage } from "../store/messageSlice"; // 匯入訊息 Action
-const ProductCard = ({ product, onRequireLogin, addToCart }) => {
-  const { user } = useAuth() || {}; 
+const ProductCard = ({ product, addToCart }) => {
   const [isLoading, setIsLoading] = useState(false); // 新增讀取狀態
   const dispatch = useDispatch();
   const handleAddToCart = async () => {
@@ -17,6 +17,7 @@ const ProductCard = ({ product, onRequireLogin, addToCart }) => {
       dispatch(pushMessage({ text: "已加入購物車！", type: "success" }));
     } catch (error) {
       //console.error("加入失敗:", error);
+      console.error("加入失敗:", error.response);
       dispatch(pushMessage({ text: "加入購物車失敗，請稍後再試！", type: "error" }));
     } finally {
       setIsLoading(false);
@@ -62,6 +63,18 @@ const ProductCard = ({ product, onRequireLogin, addToCart }) => {
       </div>
     </div>
   );
+};
+
+ProductCard.propTypes = {
+  product: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    imageUrl: PropTypes.string,
+    img: PropTypes.string,
+    title: PropTypes.string,
+    name: PropTypes.string,
+    price: PropTypes.number.isRequired,
+  }).isRequired,
+  addToCart: PropTypes.func.isRequired,
 };
 
 export default ProductCard;

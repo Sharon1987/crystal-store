@@ -1,13 +1,14 @@
-import { useState } from 'react';
+/* eslint-disable react/prop-types */
+import { React,useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAuth } from '../context/AuthContext'; // 匯入 AuthContext
 import { fetchCart } from '../store/cartSlice';   // 匯入 Redux Action
 import { pushMessage } from '../store/messageSlice'; // 匯入訊息 Action
 import axios from 'axios';
 const API_BASE = import.meta.env.VITE_API_BASE;
-const API_PATH = import.meta.env.VITE_API_PATH; 
+//const API_PATH = import.meta.env.VITE_API_PATH; 
 
-const LoginModal = ({ show, onHide, switchToRegister ,switchToLogin, onLoginSuccess, isAdminMode = false}) => {
+const LoginModal = ({ show, onHide, switchToRegister , onLoginSuccess, isAdminMode = false}) => {
   const dispatch = useDispatch();
   const { login } = useAuth(); // 取得 AuthContext 的登入函式
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { useForm } from 'react-hook-form';
 
 const ReturnRequestModal = ({ isOpen, onClose }) => {
@@ -172,6 +173,11 @@ const ReturnRequestModal = ({ isOpen, onClose }) => {
       </div>
     </div>
   );
+};
+
+ReturnRequestModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
 };
 
 export default ReturnRequestModal;

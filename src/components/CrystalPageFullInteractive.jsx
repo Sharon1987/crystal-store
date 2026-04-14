@@ -1,7 +1,7 @@
+ 
 import React, { useEffect, useRef, useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../CrystalPageAdvanced.css';
-import { Link } from "react-router-dom";
 import axios from "axios";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,12 +11,11 @@ import "swiper/css/navigation";
 
 import ProductCard from "./ProductCard";
 import { useDispatch } from "react-redux";
-
+import { pushMessage } from "../store/messageSlice"; // 匯入訊息 Action
 import { fetchCart } from "../store/cartSlice"; 
 
-import CouponModal from '../components/CouponModal';
 
-const productList = [1,2,3,4];
+//const productList = [1,2,3,4];
 const carouselTexts = [
   { text: "每顆水晶，都是你身邊的 溫暖伴侶。", img: "images/carouselpic_1.png" }, 
   { text: "戴上它，讓平凡日子也閃耀小確幸。", img: "images/carouselpic_2.png" },    
@@ -33,15 +32,16 @@ const CrystalPageFullInteractive = () => {
   const bannerRef = useRef(null);
   const [products, setProducts] = useState([]);
   const [showLogin, setShowLogin] = useState(false);
-  const [page, setPage] = useState(0);
+  console.log * ("showLogin", showLogin);
+  //const [page, setPage] = useState(0);
 
-  const ITEMS_PER_PAGE = 3;
-  const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
+  //const ITEMS_PER_PAGE = 3;
+  //const totalPages = Math.ceil(products.length / ITEMS_PER_PAGE);
 
-  const currentItems = products.slice(
-  page * ITEMS_PER_PAGE,
-  page * ITEMS_PER_PAGE + ITEMS_PER_PAGE
-  );
+  // const currentItems = products.slice(
+  // page * ITEMS_PER_PAGE,
+  // page * ITEMS_PER_PAGE + ITEMS_PER_PAGE
+  // );
   useEffect(() => {
   const fetchProducts = async () => {
     try {
@@ -54,7 +54,7 @@ const CrystalPageFullInteractive = () => {
       setProducts(productArray);
 
     } catch (error) {
-      //console.error("獲取資料失敗:", error);
+      console.error("獲取資料失敗:", error);
     }
   };
 
@@ -75,7 +75,7 @@ const CrystalPageFullInteractive = () => {
         dispatch(pushMessage({ text: res.data.message, type: "success" }));
       }
     } catch (error) {
-      //console.error("加入購物車失敗", error);
+      console.error("加入購物車失敗", error);
       dispatch(pushMessage({ text: "加入購物車失敗", type: "error" }));
     }
   };
@@ -122,7 +122,7 @@ useEffect(() => {
       {/* Banner */}
       <section className="banner-section d-flex align-items-center justify-content-center interactive-card shiny-card" ref={bannerRef}>
         <div className="banner-text animate-fadeIn" ><img src="images/about_us_ssssss.png" alt="閃耀" className="me-2" /> 
-          <h1 className="display-4 fw-bold">Sharon's Pure Gems</h1>
+          <h1 className="display-4 fw-bold">Sharon’s Pure Gems</h1>
         </div>
       </section>
 

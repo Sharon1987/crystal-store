@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+import PropTypes from 'prop-types';
 
 const RegisterModal = ({ show, onHide, switchToLogin }) => {
   const [formData, setFormData] = useState({
@@ -94,6 +94,12 @@ const RegisterModal = ({ show, onHide, switchToLogin }) => {
       </div>
     </>
   );
+};
+
+RegisterModal.propTypes = {
+  show: PropTypes.bool.isRequired,
+  onHide: PropTypes.func.isRequired,
+  switchToLogin: PropTypes.func.isRequired
 };
 
 export default RegisterModal;

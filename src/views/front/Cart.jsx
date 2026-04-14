@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"; 
+import React, { useState, useEffect } from "react"; 
 import axios from "axios";
 import { Link ,useNavigate} from "react-router-dom"; // 用來當「快去逛逛」的跳轉
 import { currency } from "../../utils/filter";
@@ -140,35 +140,7 @@ const handleSelectStore = (store) => {
       return;
     }
   
-    if (data.shippingMethod === "超商取貨") {
-    watchCvsBrand && (
-  <div className="mt-3">
-    <button 
-      type="button" 
-      className="btn btn-outline-dark mb-3"
-      onClick={() => setIsModalOpen(true)}
-    >
-      🔍 搜尋 {watchCvsBrand} 門市
-    </button>
-
-    {/* 顯示已選擇的門市資訊  */}
-    {watch("storeName") && (
-      <div className="alert alert-secondary p-2 small">
-        <strong>已選門市：</strong> {watch("storeName")} ({watch("storeId")})<br/>
-        <strong>門市地址：</strong> {watch("storeAddress")}
-      </div>
-    )}
-    
-    {/* 隱藏欄位用於表單驗證 */}
-        <input type="hidden" {...register("storeName", { required: "請選擇門市" })} />
-        <input type="hidden" {...register("storeName", { required: watchShippingMethod === "超商取貨" })} />
-        <input type="hidden" {...register("storeId")} />
-        <input type="hidden" {...register("storeAddress")} />
-        {errors.storeName && <div className="text-danger small">{errors.storeName.message}</div>}
-  </div>
-      )
-    }
-      // 整理送出的地址內容
+    // 整理送出的地址內容
   let finalAddress = "";
   
   if (data.shippingMethod === "超商取貨") {
@@ -366,15 +338,6 @@ const handleSelectStore = (store) => {
               })} />
             {errors.tel && <div className="text-danger small">{errors.tel.message}</div>}
           </div>
-
-           {/* <div className="mb-3">
-            <label htmlFor="address" className="form-label">地址</label>
-            <input id="address" type="text" className="form-control" placeholder="請輸入地址" 
-              {...register("address", { required: "地址是必填項目" })} />
-            {errors.address && <div className="text-danger small">{errors.address.message}</div>}
-          </div> 
-           */}
-            
           {/* 配送方式選擇 */}
 <div className="mb-3">
   <label className="form-label">配送方式</label>
@@ -424,6 +387,8 @@ const handleSelectStore = (store) => {
     
     {/* 隱藏欄位用於表單驗證 */}
     <input type="hidden" {...register("storeName", { required: "請選擇門市" })} />
+    <input type="hidden" {...register("storeId")} />
+    <input type="hidden" {...register("storeAddress")} />
     {errors.storeName && <div className="text-danger small">{errors.storeName.message}</div>}
   </div>
 )}

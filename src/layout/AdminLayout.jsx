@@ -1,4 +1,5 @@
 // src/layout/AdminLayout.jsx
+import React from 'react';
 import { Outlet } from 'react-router-dom';
 import AdminHeader from '../components/AdminHeader'; // 記得建立這個後台專用導覽列
 import MessageToast from '../components/MessageToast';

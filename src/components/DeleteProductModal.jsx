@@ -1,7 +1,8 @@
-import * as bootstrap from "bootstrap";
+import React from "react";
+import PropTypes from "prop-types";
+
 
 function DeleteProductModal({
-  DeleteProductModal,
   tempProduct,
   handleConfirmDelete
 }) {
@@ -52,5 +53,11 @@ return (
 </div>
 );
 }
+
+DeleteProductModal.propTypes = {
+  DeleteProductModal: PropTypes.bool,
+  tempProduct: PropTypes.object,
+  handleConfirmDelete: PropTypes.func.isRequired
+};
 
 export default DeleteProductModal;

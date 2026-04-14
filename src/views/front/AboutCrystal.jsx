@@ -1,3 +1,5 @@
+import React from 'react';
+
 function AboutCrystal() {
 
     return (
@@ -66,49 +68,49 @@ function AboutCrystal() {
       <div className="care-card">
              
       <h3>-白水晶-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         質地穩定、硬度高，不易刮傷。建議清水輕洗後擦乾，
         或用柔布輕拭。避免香水與清潔劑接觸，收納時單獨放置。
                 </p>
               <img src="images/ClearQuartz.png" alt="白水晶" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-白瑪瑙-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-白瑪瑙-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         白瑪瑙表面溫潤但不耐撞擊，收納時與其他飾品分開擺放。保養時建議乾布擦拭，避免高溫曝曬，
         以維持柔和光感。
         </p>
         <img src="images/WhiteAgate.png" alt="白瑪瑙" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-紫水晶-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-紫水晶-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         長時間日曬可能造成褪色，
         日常配戴需盡量避免陽光直射，
         平時可以用軟布清潔，並放置於陰涼乾燥處。
@@ -117,118 +119,118 @@ function AboutCrystal() {
 
     </div>
 
-    <div className="care-card">
-      <h3>-粉晶-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-粉晶-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         粉水晶的質地細緻，應避免曝曬與碰撞。日常以乾布輕柔擦拭，
         收納時建議單獨放置於陰涼乾燥處。
       </p>
       <img src="images/RoseQuartz.png" alt="粉晶" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-櫻花瑪瑙-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-櫻花瑪瑙-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         櫻花瑪瑙紋理特殊，避免碰撞與長時間接觸水，以避免水晶受損。
         日常建議乾布擦拭保養並與其他水晶分開收納。
       </p>
       <img src="images/BlossomAgate.png" alt="櫻花瑪瑙" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-海藍寶-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-海藍寶-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         海藍寶質地較易產生刮痕，應該避免與硬物碰撞。
         一般保養建議清水沖洗後擦乾，避免存放於高溫潮濕環境。
       </p>
       <img src="images/Aquamarine.png" alt="海藍寶" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-藍晶石-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-藍晶石-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         藍晶石的層狀結構易裂，應避免擠壓與長時間碰水，
         日常收納建議與其他水晶隔開單獨放置。
               </p>
               <img src="images/Kyanite.png" alt="藍晶石" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-月光石-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-月光石-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         月光石易刮傷，避免與其他水晶混放。保養時可用軟布擦拭，不可使用酒精或清潔劑，
         避免化學物質接觸。
               </p>
               <img src="images/Moonstone.png" alt="月光石" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-太陽石-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-太陽石-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         太陽石如表面刮傷會影響閃耀效果，避免與其他水晶混放。保養建議用軟布擦拭並分開收納。
               </p>
               <img src="images/Sunstone.png" alt="太陽石" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-紅瑪瑙-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-紅瑪瑙-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         紅瑪瑙性質穩定，但仍應避免重擊與陽光曝曬，
         日常保養以乾布擦拭即可。
               </p>
@@ -236,34 +238,34 @@ function AboutCrystal() {
               <img src="images/RedAgate.png" alt="紅瑪瑙" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-黃水晶-</h3>
-          <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-黃水晶-</h3>
+  <p style={{ 
+    lineHeight: '1.6em', 
+    height: '6.4em',      // 1.6 * 4 = 6.4
+    overflow: 'hidden', 
+    marginBottom: '15px',
+    display: '-webkit-box',
+    WebkitLineClamp: 4,
+    WebkitBoxOrient: 'vertical'
+  }}>
         黃水晶保存時應避免陽光直射，可清水清潔後擦乾，
         放置陰涼處保存。
               </p>
               <img src="images/Citrine.png" alt="黃水晶" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-黃虎眼-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-黃虎眼-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         黃虎眼石具有明顯的紋理，神似老虎的眼睛，保存時應避免其刮傷影響光澤，
         收納時避免堆疊。
       </p>
@@ -272,34 +274,34 @@ function AboutCrystal() {
       <img src="images/YellowTigerEye.png" alt="黃虎眼" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card">
-      <h3>-東菱玉-</h3>
-    <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card">
+  <h3>-東菱玉-</h3>
+<p style={{ 
+  lineHeight: '1.6em', 
+  height: '6.4em',      // 1.6 * 4 = 6.4
+  overflow: 'hidden', 
+  marginBottom: '15px',
+  display: '-webkit-box',
+  WebkitLineClamp: 4,
+  WebkitBoxOrient: 'vertical'
+}}>
         東菱玉具有玉的質感，保存時應避免摩擦與接觸化學物質，
         建議乾布清潔擦拭後單獨收納。
               </p>
               <img src="images/Aventurine.png" alt="東菱玉" style={{ width: '100%',height: '160px' }} />
     </div>
 
-    <div className="care-card metal">
-      <h3>-金屬吊飾-</h3>
-      <p　style={{ 
-　　　  lineHeight: '1.6em', 
-  　　　height: '6.4em',      // 1.6 * 4 = 6.4
-  　　　overflow: 'hidden', 
-  　　　marginBottom: '15px',
-  　　　display: '-webkit-box',
-  　　　WebkitLineClamp: 4,
-  　　　WebkitBoxOrient: 'vertical'
-　　　　}}>
+<div className="care-card metal">
+  <h3>-金屬吊飾-</h3>
+  <p style={{ 
+    lineHeight: '1.6em', 
+    height: '6.4em',      // 1.6 * 4 = 6.4
+    overflow: 'hidden', 
+    marginBottom: '15px',
+    display: '-webkit-box',
+    WebkitLineClamp: 4,
+    WebkitBoxOrient: 'vertical'
+  }}>
         易氧化，建議配戴後擦拭，
         避免接觸水、香水與清潔劑。
               </p>

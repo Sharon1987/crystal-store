@@ -1,4 +1,4 @@
-import  { useState } from 'react';
+import React, { useState } from 'react';
 import ReturnRequestModal from '../../components/ReturnRequestModal';
 
 function ReturnAndExchangePolicy() {
@@ -15,7 +15,7 @@ function ReturnAndExchangePolicy() {
   };
 
   const sectionStyle = { marginBottom: '32px', textAlign: 'left' };
-  const titleStyle = { fontSize: '20px', fontWeight: 'bold', color: '#333', marginBottom: '16px', borderBottom: '1px solid #eee', paddingBottom: '8px', textAlign: 'left' };
+  //const titleStyle = { fontSize: '20px', fontWeight: 'bold', color: '#333', marginBottom: '16px', borderBottom: '1px solid #eee', paddingBottom: '8px', textAlign: 'left' };
   const itemTitleStyle = { fontSize: '16px', fontWeight: 'bold', margin: '16px 0 4px 0', color: '#555', textAlign: 'left' };
   const contentStyle = { fontSize: '15px', lineHeight: '1.8', margin: '0 0 8px 0', textAlign: 'left' };
 

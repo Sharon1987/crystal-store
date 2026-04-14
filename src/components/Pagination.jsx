@@ -1,7 +1,9 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 function Pagination({pagination,onChangePage}) { 
   const handleClick = (e,page) => {
     e.preventDefault();
-    
     onChangePage(page);
   }
   return (
@@ -36,5 +38,15 @@ function Pagination({pagination,onChangePage}) {
   </ul>
 </nav>       );
 }
+
+Pagination.propTypes = {
+  pagination: PropTypes.shape({
+    has_pre: PropTypes.bool.isRequired,
+    has_next: PropTypes.bool.isRequired,
+    current_page: PropTypes.number.isRequired,
+    total_pages: PropTypes.number.isRequired,
+  }).isRequired,
+  onChangePage: PropTypes.func.isRequired,
+};
 
 export default Pagination;

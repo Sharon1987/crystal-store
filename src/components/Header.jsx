@@ -68,9 +68,7 @@ function Header() {
               height="80" 
               className="d-inline-block align-text-top me-2" 
           />
-        <Link className="navbar-brand fw-bold" to="/">
-          Sharon's Pure Gems
-        </Link>
+        <Link className="navbar-brand fw-bold" to="/">Sharon’s Pure Gems</Link>
 
         {/* 手機版按鈕 */}
         <button

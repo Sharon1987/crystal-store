@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
+import React from "react";
 import { useEffect, useRef } from 'react';
 import * as bootstrap from 'bootstrap';
-import { useDispatch } from 'react-redux';
-import { pushMessage } from '../store/messageSlice';  
+//import { useDispatch } from 'react-redux';
+//import { pushMessage } from '../store/messageSlice';  
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function CouponModal({ coupon, onCopy }) {
   const modalRef = useRef(null);
   const bsModal = useRef(null);
-  const dispatch = useDispatch();
+  //const dispatch = useDispatch();
 
   useEffect(() => {
   // 確保 DOM 已經存在

@@ -1,3 +1,6 @@
+import React from 'react';
+import PropTypes from 'prop-types';
+
 function ProductModal({
   modalType,//判斷新增修改
   tempProduct,   
@@ -7,8 +10,7 @@ function ProductModal({
   handleRemoveImage,
   addProduct,
   editProduct,
-  closeModal,
-  productModalRef
+  closeModal
 }) {
 return (
   <div className="modal fade" id="productModal" tabIndex="-1" 
@@ -209,5 +211,17 @@ return (
   </div>
 );
 }
+
+ProductModal.propTypes = {
+  modalType: PropTypes.string.isRequired,
+  tempProduct: PropTypes.object.isRequired,
+  handleModalInputChange: PropTypes.func.isRequired,
+  handleModalImageChange: PropTypes.func.isRequired,
+  handleAddImage: PropTypes.func.isRequired,
+  handleRemoveImage: PropTypes.func.isRequired,
+  addProduct: PropTypes.func.isRequired,
+  editProduct: PropTypes.func.isRequired,
+  closeModal: PropTypes.func.isRequired,
+};
 
 export default ProductModal;

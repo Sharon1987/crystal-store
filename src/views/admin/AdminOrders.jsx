@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import * as bootstrap from 'bootstrap';
 import Pagination from "../../components/Pagination";
@@ -28,6 +28,7 @@ function AdminOrders() {
       setPagination(res.data.pagination);
     } catch (error) {
       //alert("取得訂單失敗");
+      console.log(error.response);
       dispatch(pushMessage({ text:"取得訂單失敗", type: "danger" }));
     }
   };
@@ -44,6 +45,7 @@ function AdminOrders() {
       getOrders();
     } catch (error) {
       //alert("更新失敗");
+      console.log(error.response);
       dispatch(pushMessage({ text:"更新失敗", type: "danger" }));
     }
   };
@@ -58,6 +60,7 @@ function AdminOrders() {
       getOrders();
     } catch (error) {
       //alert("刪除失敗");
+      console.log(error.response);
       dispatch(pushMessage({ text:"刪除失敗", type: "danger" })); 
     }
   };

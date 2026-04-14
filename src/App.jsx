@@ -1,4 +1,5 @@
-import React, { useState,useEffect } from 'react';
+/* eslint-disable react/prop-types */
+import React, { useState, useEffect } from 'react';
 import { HashRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { Provider, useDispatch } from 'react-redux';
 import axios from 'axios';
@@ -9,8 +10,6 @@ import { fetchCart } from './store/cartSlice';
 import { AuthProvider, useAuth } from './context/AuthContext'; 
 
 // 共用樣式與組件
-import Header from './components/Header';
-import Footer from './components/Footer'; 
 import CrystalPageFullInteractive from './components/CrystalPageFullInteractive';
 import OrderSuccess from './views/front/OrderSuccess';
 import CouponModal from "./components/CouponModal";
@@ -38,7 +37,7 @@ const API_BASE = import.meta.env.VITE_API_BASE;
 const API_PATH = import.meta.env.VITE_API_PATH;
 
 /*路由守衛*/
-function ProtectedRoute({ children }) {
+export function ProtectedRoute({ children }) {
   const { user } = useAuth(); 
   const location = useLocation();
   if (!user) {
@@ -77,7 +76,9 @@ function AppDataInitializer({ children }) {
           });
         }
       } catch (error) {
+        console.log(error.response);
         console.log("優惠券無效、已過期或已達使用上限");
+        dispatch(pushMessage({ text: "優惠券無效、已過期或已達使用上限", type: "info" }));
       }
     };
 
@@ -115,7 +116,7 @@ function AppDataInitializer({ children }) {
 function App() {
   return (
     
-    <Provider store={store}>
+    
       
       <AppDataInitializer>
        
@@ -154,7 +155,7 @@ function App() {
           </AuthProvider>
         </Router>
       </AppDataInitializer>
-    </Provider>
+    
   );
 }
 

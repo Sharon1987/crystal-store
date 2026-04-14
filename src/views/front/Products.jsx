@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef, use } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import { currency } from "../../utils/filter";
 import { Modal } from "bootstrap";
@@ -10,28 +10,28 @@ const API_BASE = import.meta.env.VITE_API_BASE;
 const API_PATH = import.meta.env.VITE_API_PATH;
 
 
-//上一頁和下一頁
-function SomeComponent() {
-  const navigate = useNavigate();
+// //上一頁和下一頁
+// function SomeComponent() {
+//   const navigate = useNavigate();
 
-  const handleSubmit = () => {
-    // 提交成功後跳轉
-    navigate("/success");
+//   const handleSubmit = () => {
+//     // 提交成功後跳轉
+//     navigate("/success");
 
-    // 更換當前歷史記錄
-    navigate("/login", { replace: true });
+//     // 更換當前歷史記錄
+//     navigate("/login", { replace: true });
 
-    // 回上一頁
-    navigate(-1);
+//     // 回上一頁
+//     navigate(-1);
 
-    // 傳遞 state 資料
-    navigate("/result", {
-      state: { message: "操作成功" },
-    });
-  };
+//     // 傳遞 state 資料
+//     navigate("/result", {
+//       state: { message: "操作成功" },
+//     });
+//   };
 
-  return <button onClick={handleSubmit}>提交</button>;
-}
+//   return <button onClick={handleSubmit}>提交</button>;
+// }
 
 
 
@@ -41,6 +41,7 @@ function Products() {
   const [products, setProducts] = useState([]);
   const [tempProduct, setTmpProduct] = useState({});
   const [qty, setQty] = useState(1); // 管理數量的狀態
+  const [setPagination] = useState({});
   //Modal
   const modalRef = useRef(null);
   const bsModal = useRef(null);
@@ -70,10 +71,11 @@ function Products() {
         //console.log('取得產品清單', response.data.products);
         //console.log('res', response);
         //setProducts(response.data.products);
+        console.log(page);
         setProducts(Object.values(response.data.products));
         setPagination(response.data.pagination);
       } catch (error) {
-        //console.error('取得產品清單失敗', error.response);
+        console.error('取得產品清單失敗', error.response);
       }
     };
     const handleViewMore = async (id) => {
@@ -88,7 +90,7 @@ function Products() {
         console.error('取得單一產品資料失敗', error.response);
       }
     };
-
+ 
     //加入購物車
   const addCart = async (id, qty = 1) => {
     try {
@@ -96,14 +98,14 @@ function Products() {
       const response = await axios.post(`${API_BASE}api/${API_PATH}/cart`, { data });
       dispatch(fetchCart()); //更新 Header 的數量
       if (bsModal.current) {
-        
         bsModal.current.hide();
-        }
+      }
+      console.log('加入購物車成功', response.data);
       dispatch(pushMessage({ text: `已將商品加入購物車`, type: "success" }));
       //alert('加入購物車成功');
     } catch (error) {
       //console.log("偵錯點：", error);
-      //console.error('加入購物車失敗', error.response);
+      console.error('加入購物車失敗', error.response);
       alert('加入購物車失敗');
   
     }
@@ -132,21 +134,21 @@ function Products() {
                    objectPosition: 'center' // 確保圖片內容從中間對齊裁切
                    }}
                  />
-                  <div className="card-body" style={{ maxHeight: '400px', minHeight: '300px' }}>
-                    <h5 className="card-title">{product.title}</h5>
-                    <p className="card-text"
-                      style={{
-                        whiteSpace: 'pre-line',
-                        display: '-webkit-box',
-   　　　　　　　　　　　 WebkitLineClamp: 5,          // 這裡設定「超過幾行」要顯示 ...
-    　　　　　　　　　　　WebkitBoxOrient: 'vertical',
-    　　　　　　　　　　　overflow: 'hidden',
-    　　　　　　　　　　　textOverflow: 'ellipsis',
-    　　　　　　　　　　　height: '7.5em',             // 設定固定高度 (行高 1.5 * 3行)
-    　　　　　　　　　　　lineHeight: '1.5em'
+  <div className="card-body" style={{ maxHeight: '400px', minHeight: '300px' }}>
+  <h5 className="card-title">{product.title}</h5>
+  <p className="card-text"
+  style={{
+  whiteSpace: 'pre-line',
+  display: '-webkit-box',
+  WebkitLineClamp: 5,
+  WebkitBoxOrient: 'vertical',
+  overflow: 'hidden',
+  textOverflow: 'ellipsis',
+  height: '7.5em',
+  lineHeight: '1.5em'
   }}>
-                      {product.description}
-                    </p>
+  {product.description}
+  </p>
                     <p className="card-text">
                       <strong>價格:</strong> {currency(product.price)} 元／{product.unit}
                     </p>

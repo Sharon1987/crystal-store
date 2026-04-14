@@ -1,3 +1,4 @@
+import React from 'react';
 import './AboutBrand.css'; 
 
 const AboutBrand = () => {

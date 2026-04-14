@@ -1,4 +1,5 @@
-
+/* eslint-disable no-unused-vars */
+ 
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import LoginModal from "./LoginModal"; 
@@ -8,7 +9,7 @@ export default function Footer() {
   const navigate = useNavigate();
   // 當管理員點擊 Logo 成功登入後執行的動作
   const handleAdminSuccess = () => {
-    navigate("/admin/products"); // 這裡是你後台的路由
+    navigate("/admin/products");
   };
   const handleLogoClick = (e) => {
     e.preventDefault();
@@ -88,7 +89,7 @@ export default function Footer() {
         <hr />
 
         <div className="text-center small text-muted">
-          © 2026 Sharon's Pure Gems. All Rights Reserved.
+          © 2026 Sharon’s Pure Gems. All Rights Reserved.
         </div>
  
       </div>

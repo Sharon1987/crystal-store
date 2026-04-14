@@ -1,3 +1,5 @@
+import React from 'react';
+
 const ShoppingInfo = () => {
   // 定義樣式
   const leftAlignStyle = { textAlign: 'left', width: '100%' };

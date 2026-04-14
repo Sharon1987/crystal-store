@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import axios from "axios";
 import * as bootstrap from 'bootstrap';
 import { useNavigate } from 'react-router-dom';
@@ -58,6 +58,7 @@ function AdminProducts() {
       getProducts();
     } catch (error) {
       //alert("驗證過期，請重新登入");
+      console.log(error.response);
       dispatch(pushMessage({ text: "驗證過期，請重新登入", type: "danger" }));  
       navigate("/");
     }
@@ -72,6 +73,7 @@ function AdminProducts() {
       setPagination(response.data.pagination);
     } catch (error) {
       //  console.error('取得產品清單失敗', error);
+      console.log(error.response);
       dispatch(pushMessage({ text: "取得產品清單失敗", type: "danger" }));
     }
   };
@@ -115,6 +117,7 @@ function AdminProducts() {
       closeModal();
     } catch (error) {
       //alert('新增商品失敗');
+      console.log(error.response);
       dispatch(pushMessage({ text: "新增商品失敗", type: "danger" }));  
     }
   };
@@ -161,6 +164,7 @@ function AdminProducts() {
       delProductModalRef.current.hide();
     } catch (error) {
       //  alert("刪除失敗");
+      console.log(error.response);
       dispatch(pushMessage({ text: "刪除失敗", type: "danger" }));
     }
   };
